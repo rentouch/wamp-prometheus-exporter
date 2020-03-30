@@ -2,7 +2,7 @@
 
 NAME="crossbar-prometheus-exporter"
 DOCKER_HUB_USER="jegger"
-VERSION=1.0
+VERSION=1.1
 
 # Create docker image
 docker build -t $NAME .

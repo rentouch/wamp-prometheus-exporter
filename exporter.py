@@ -9,16 +9,16 @@ from twisted.internet.defer import inlineCallbacks
 from twisted.web.resource import Resource
 from twisted.web.server import Site
 
-g_active_sessions = Gauge('active_session_count', 'Number of sessions currently active', ['router_url', 'realm'])
+g_active_sessions = Gauge('wamp_active_session_count', 'Number of sessions currently active', ['router_url', 'realm'])
 
-g_registration_callees = Gauge('active_callee_count', 'Number of sessions currently attached to the registration',
+g_registration_callees = Gauge('wamp_active_callee_count', 'Number of sessions currently attached to the registration',
                                ['router_url', 'realm', 'uri'])
 
 g_wamp_subscriptions = Gauge(
-    'number_of_subscriptions', 'Total number of subscriptions',
+    'wamp_number_of_subscriptions', 'Total number of subscriptions',
     ['router_url', 'realm', 'match'])
 
-g_subscription_subscribers = Gauge('active_subscription_count',
+g_subscription_subscribers = Gauge('wamp_active_subscription_count',
                                    'Number of sessions currently subscribed to the subscription',
                                    ['router_url', 'realm', 'uri'])
 
