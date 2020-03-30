@@ -1,6 +1,6 @@
 FROM python:3.7-alpine
 ADD requirements.txt ./
-RUN apk add --no-cache --virtual=build-dependencies g++ && \
+RUN apk add --no-cache --virtual=build-dependencies g++ libffi-dev libressl-dev musl-dev libffi-dev && \
  pip install --no-cache-dir -r requirements.txt && \
  apk del --purge \
     build-dependencies && \
