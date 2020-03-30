@@ -20,18 +20,18 @@ g_subscription_subscribers = Gauge('active_subscription_count',
 
 settings = {
     "wamp_url": os.environ.get('WAMP_URL'),
-    "wamp_realm": os.environ.get('WAMP_REALM'),
-    "wamp_principal": os.environ.get('WAMP_PRINCIPAL'),
-    "wamp_ticket": os.environ.get('WAMP_TICKET'),
+    "wamp_realm": os.environ.get('WAMP_REALM', 'realm1'),
+    "wamp_authid": os.environ.get('WAMP_CRA_AUTHID'),
+    "wamp_secret": os.environ.get('WAMP_CRA_SECRET'),
 }
 
 component = Component(
     transports=settings.get('wamp_url'),
     realm=settings.get('wamp_realm'),
     authentication={
-        "ticket": {
-            "authid": settings.get('wamp_principal'),
-            "ticket": settings.get('wamp_ticket'),
+        "wampcra": {
+            "authid": settings.get('wamp_authid'),
+            "secret": settings.get('wamp_secret'),
         }
     }
 )
